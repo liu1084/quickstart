@@ -62,6 +62,8 @@ Route::group(['middleware' => ['web']], function () {
 //        return redirect('/');
 //    });
 
+    // Authentication Routes...
+    Route::auth();
 
     Route::get('/', function(){
         return view('welcome');
@@ -69,5 +71,5 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/tasks', 'TaskController@index');
     Route::post('/task', 'TaskController@store');
-    Route::delete('/task', 'TaskController@destory');
+    Route::delete('/task/{task}', 'TaskController@destroy');
 });
